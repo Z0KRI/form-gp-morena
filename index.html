@@ -6,12 +6,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GP Morena | Comedor para legisladores</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="/assets/styles.css">
 </head>
 </head>
 
 <body>
-
+    <div class="h-screen bg-[url(/assets/img/hero.jpg)] bg-center bg-cover">
+        <div class="bg-black/50 w-full h-full flex justify-center">
+            <div class="flex-1 max-w-[45rem] flex flex-col justify-between text-white">
+                <span></span>
+                <span class="flex flex-col h-[10rem] md:h-[12rem] justify-between">
+                    <h1 class="text-center text-2xl md:text-5xl font-semibold">Comedor para legisladores del Grupo
+                        Parlamentario de
+                        Morena
+                    </h1>
+                    <div class="w-full flex justify-center">
+                        <a href="#form"
+                            class="rounded-full border-3 px-6 border-[#7b1927] bg-[#7b1927] md:bg-transparent md:hover:bg-[#7b1927] p-4 max-w-full md:max-w-1/3 text-center transition-all duration-200">
+                            Iniciar encuesta
+                        </a>
+                    </div>
+                </span>
+                <div class="w-full flex justify-center">
+                    <a href="#form" class="animate-bounce">
+                        <i class="bi bi-arrow-down text-4xl md:text-7xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="form" class="flex justify-center h-[90vh] overflow-y-auto bg-[#7b1928]" style="scrollbar-width: none;">
+        <div class="w-full max-w-4xl relative p-6">
+            <div class="container p-2 bg-white rounded-2xl" id="ff-compose"></div>
+            <script async defer
+                src="https://formfacade.com/include/101974060661531643396/form/1FAIpQLSfSsu0goxNCTcRZdMgAAvvHVnbj-n9Dsk_71Vk3apSycd6ugw/bootstrap.js?div=ff-compose"></script>
+        </div>
+    </div>
+    <footer class="h-[10vh] bg-[#151a1f]">
+        Hola
+    </footer>
 </body>
 
 </html>

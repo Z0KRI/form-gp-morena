@@ -1,4 +1,89 @@
-/* styles.css */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css");
+
 @theme {
     --color-clifford: #da373d;
 }
+
+/* -------------------------------------------
+   Estilos personalizados para Formfacade
+------------------------------------------- */
+
+/* Cambiar el estilo de los títulos (Ej. "Ayúdanos a mejorar tu día.") */
+#ff-compose .ff-title {
+    color: #1f2937 !important; /* Un gris oscuro */
+    font-size: 1.5rem !important;
+    font-weight: bold !important;
+    text-align: center !important;
+}
+
+/* Cambiar el texto de las preguntas */
+#ff-compose .ff-item-qs {
+    color: #4b5563 !important;
+    font-weight: 600 !important;
+}
+
+/* --- ESTILOS DE LOS BOTONES (Siguiente / Enviar) --- */
+#ff-compose .btn-primary {
+    background-color: #6366f1 !important; /* Color índigo de Tailwind */
+    border-color: #6366f1 !important;
+    border-radius: 0.5rem !important; /* rounded-lg */
+    padding: 0.75rem 1.5rem !important;
+}
+#ff-compose .btn-primary:hover {
+    background-color: #4f46e5 !important; /* Índigo más oscuro al pasar el mouse */
+}
+
+/* --- ESTILOS DE LA ESCALA LINEAL (1 al 5) --- */
+#ff-compose .ff-linear-scale-button {
+    border: 2px solid #e5e7eb !important; /* Borde gris claro */
+    color: #374151 !important;
+    transition: all 0.2s ease-in-out !important;
+}
+
+/* Número seleccionado en la escala lineal */
+#ff-compose .ff-linear-scale-button-active {
+    background-color: #6366f1 !important;
+    color: white !important;
+    border-color: #6366f1 !important;
+}
+
+/* Ocultar la marca de agua de Formfacade (Opcional) */
+#ff-compose .ff-powered-img {
+    display: none !important;
+}
+
+/* 1. Hacer que los contenedores de la escala tomen el 100% del ancho */
+#ff-compose .ff-linear-scale-container,
+#ff-compose .ff-linear-scale-inner-container {
+    width: 100% !important;
+    max-width: 100% !important; 
+}
+
+/* 2. Distribuir los botones (círculos) uniformemente a lo ancho */
+#ff-compose .ff-linear-scale-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important; /* Separa los círculos equitativamente */
+}
+
+/* 3. Asegurar que cada contenedor de input no tenga márgenes raros */
+#ff-compose .ff-linear-scale-input-wrapper {
+    flex: 1 !important; /* Hace que cada bloque tome la misma proporción de espacio */
+    display: flex !important;
+    justify-content: center !important; /* Centra el botón dentro de su fracción despacio */
+}
+
+/* 4. Acomodar las etiquetas ("MUY MALA" y "EXCELENTE") a los extremos */
+#ff-compose .ff-linear-scale-label-wrapper {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    margin-top: 10px !important; /* Un poco de respiro visual abajo de los números */
+}
+
+/* 5. Quitar el ancho fijo (68.18px) que Formfacade le inyecta a las etiquetas en línea */
+#ff-compose .ff-linear-scale-label-text {
+    width: auto !important; 
+}
+
+/* ff-linear-scale-container */
