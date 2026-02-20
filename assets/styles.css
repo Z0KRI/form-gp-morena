@@ -301,3 +301,22 @@
     border-color: #306950 !important;
     background: radial-gradient(circle, #306950 40%, transparent 45%); /* Hace el puntito interno */
 }
+
+/* -------------------------------------------
+   OCULTAR MARCA DE AGUA DEL MENSAJE DE ÉXITO
+------------------------------------------- */
+
+/* Atacamos directamente la clase contenedora y el botón */
+.ff-watermark,
+.create-your-own-form {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    pointer-events: none !important; /* Desactiva clics por si acaso */
+    position: absolute !important; /* Lo saca del documento visualmente */
+}
