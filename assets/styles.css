@@ -21,3 +21,159 @@
   display: none !important;
 }
 
+/* --- ESTILOS DE LA ESCALA LINEAL (1 al 5) --- */
+#ff-compose .ff-linear-scale-button {
+  border: 2px solid #e5e7eb !important; /* Borde gris claro */
+  color: #374151 !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+/* Número seleccionado en la escala lineal */
+#ff-compose .ff-linear-scale-button-active {
+  background-color: #b5915e !important;
+  color: white !important;
+  border-color: #b5915e !important;
+}
+
+/* Ocultar la marca de agua de Formfacade (Opcional) */
+#ff-compose .ff-powered-img {
+  display: none !important;
+}
+
+/* 1. Hacer que los contenedores de la escala tomen el 100% del ancho */
+#ff-compose .ff-linear-scale-container,
+#ff-compose .ff-linear-scale-inner-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* 2. Distribuir los botones (círculos) uniformemente a lo ancho */
+#ff-compose .ff-linear-scale-wrapper {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important; /* Separa los círculos equitativamente */
+}
+
+/* 3. Asegurar que cada contenedor de input no tenga márgenes raros */
+#ff-compose .ff-linear-scale-input-wrapper {
+  flex: 1 !important; /* Hace que cada bloque tome la misma proporción de espacio */
+  display: flex !important;
+  justify-content: center !important; /* Centra el botón dentro de su fracción despacio */
+}
+
+/* 4. Acomodar las etiquetas ("MUY MALA" y "EXCELENTE") a los extremos */
+#ff-compose .ff-linear-scale-label-wrapper {
+  width: 100% !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  margin-top: 10px !important; /* Un poco de respiro visual abajo de los números */
+}
+
+/* 5. Quitar el ancho fijo (68.18px) que Formfacade le inyecta a las etiquetas en línea */
+#ff-compose .ff-linear-scale-label-text {
+  width: auto !important;
+}
+
+/* Cambiar el texto de las preguntas */
+#ff-compose .ff-item-qs {
+  color: #4b5563 !important;
+  font-weight: 600 !important;
+}
+
+/* --- ESTILOS DE LOS BOTONES (Siguiente / Enviar) --- */
+#ff-compose .btn-primary {
+  background-color: #b5915e !important; /* Color índigo de Tailwind */
+  border-color: #b5915e !important;
+  border-radius: 0.5rem !important; /* rounded-lg */
+  padding: 0.75rem 1.5rem !important;
+  color: white;
+}
+
+#ff-compose .btn-primary:hover {
+  background-color: #c5a475 !important; /* Índigo más oscuro al pasar el mouse */
+}
+
+/* -------------------------------------------
+    ESTILOS PARA EL BANNER PRINCIPAL (HEADER)
+------------------------------------------- */
+
+/* 1. Contenedor principal del título */
+#ff-compose #ff-title-root {
+  /* Colores y fondo con gradientes para simular los círculos de las esquinas */
+  background-color: #1f5740 !important;
+  background-image:
+    radial-gradient(
+      circle at 100% 0%,
+      #306950 0%,
+      #306950 20%,
+      transparent 20.5%
+    ),
+    radial-gradient(
+      circle at 0% 100%,
+      #306950 0%,
+      #306950 15%,
+      transparent 15.5%
+    ) !important;
+
+  /* Tipografía y espaciado */
+  font-family:
+    ui-serif, Georgia, Cambria, "Times New Roman", Times, serif !important;
+  color: #ffffff !important;
+  text-align: center !important;
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  padding: 60px 20px 40px 20px !important;
+
+  /* Sombra naranja/dorada del texto para darle ese efecto 3D */
+  text-shadow: 1.5px 1px 0px #e8a65f !important;
+
+  /* Estructura Flex para alinear el ícono y el texto */
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+
+  /* Ajustes para que encaje perfecto en tu contenedor Tailwind */
+  border-radius: 1rem 1rem 0 0 !important; /* rounded-2xl arriba */
+  margin-top: -8px !important; /* Compensa el p-2 de tu contenedor bg-white */
+  margin-left: -8px !important;
+  margin-right: -8px !important;
+  margin-bottom: 30px !important;
+}
+
+/* 2. El cuadro con el ícono de cubiertos (usando ::before) */
+#ff-compose #ff-title-root::before {
+  content: "";
+  display: block !important;
+  width: 64px !important;
+  height: 64px !important;
+  background-color: #43765e !important; /* Cuadro interior más claro */
+  border-radius: 16px !important; /* Esquinas redondeadas del ícono */
+  margin-bottom: 24px !important; /* Espacio entre el ícono y el título */
+
+  /* Ícono SVG en base64 (Cuchillo y tenedor cruzados) */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils-crossed-icon lucide-utensils-crossed"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"/><path d="m2.1 21.8 6.4-6.3"/><path d="m19 5-7 7"/></svg>');
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: 32px !important;
+
+  /* Quitamos la sombra dorada para que no afecte al ícono */
+  text-shadow: none !important;
+}
+
+/* 3. El subtítulo "Tu opinión nos importa mucho" (usando ::after) */
+#ff-compose #ff-title-root::after {
+  content: "Tu opinión nos importa mucho";
+  display: block !important;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    sans-serif !important;
+  font-size: 1rem !important;
+  color: #9cd4b5 !important; /* Verde menta claro */
+  font-weight: 500 !important;
+  margin-top: 16px !important; /* Espacio entre el título principal y el subtítulo */
+
+  /* Quitamos la sombra dorada para que el subtítulo se vea limpio */
+  text-shadow: none !important;
+}
