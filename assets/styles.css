@@ -12,18 +12,18 @@
   height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
-  pointer-events: none !important; /* Evita que el usuario le dé clic por accidente */
-  position: absolute !important; /* Lo saca del flujo normal para que no ocupe espacio extra */
+  pointer-events: none !important;
+  position: absolute !important;
 }
 
-/* Y por si acaso, apagamos la imagen que lleva dentro */
 #ff-compose .ff-powered-img img {
   display: none !important;
 }
 
 /* --- ESTILOS DE LA ESCALA LINEAL (1 al 5) --- */
 #ff-compose .ff-linear-scale-button {
-  border: 2px solid #e5e7eb !important; /* Borde gris claro */
+  /* Borde gris claro */
+  border: 2px solid #e5e7eb !important;
   color: #374151 !important;
   transition: all 0.2s ease-in-out !important;
 }
@@ -35,41 +35,35 @@
   border-color: #b5915e !important;
 }
 
-/* Ocultar la marca de agua de Formfacade (Opcional) */
-#ff-compose .ff-powered-img {
-  display: none !important;
-}
-
-/* 1. Hacer que los contenedores de la escala tomen el 100% del ancho */
+/* -------- Contenedores -------- */
 #ff-compose .ff-linear-scale-container,
 #ff-compose .ff-linear-scale-inner-container {
   width: 100% !important;
   max-width: 100% !important;
 }
 
-/* 2. Distribuir los botones (círculos) uniformemente a lo ancho */
+/* Distribución los botones (círculos) uniformemente a lo ancho */
 #ff-compose .ff-linear-scale-wrapper {
   width: 100% !important;
   display: flex !important;
-  justify-content: space-between !important; /* Separa los círculos equitativamente */
+  justify-content: space-between !important;
 }
 
-/* 3. Asegurar que cada contenedor de input no tenga márgenes raros */
 #ff-compose .ff-linear-scale-input-wrapper {
-  flex: 1 !important; /* Hace que cada bloque tome la misma proporción de espacio */
+  flex: 1 !important;
   display: flex !important;
-  justify-content: center !important; /* Centra el botón dentro de su fracción despacio */
+  justify-content: center !important;
 }
 
-/* 4. Acomodar las etiquetas ("MUY MALA" y "EXCELENTE") a los extremos */
+/* Ajuste de las etiquetas ("MUY MALA" y "EXCELENTE") a los extremos */
 #ff-compose .ff-linear-scale-label-wrapper {
   width: 100% !important;
   display: flex !important;
   justify-content: space-between !important;
-  margin-top: 10px !important; /* Un poco de respiro visual abajo de los números */
+  margin-top: 10px !important;
 }
 
-/* 5. Quitar el ancho fijo (68.18px) que Formfacade le inyecta a las etiquetas en línea */
+/* Quitar el ancho fijo (68.18px) que Formfacade le inyecta a las etiquetas en línea */
 #ff-compose .ff-linear-scale-label-text {
   width: auto !important;
 }
@@ -82,22 +76,22 @@
 
 /* --- ESTILOS DE LOS BOTONES (Siguiente / Enviar) --- */
 #ff-compose .btn-primary {
-  background-color: #b5915e !important; /* Color índigo de Tailwind */
+  background-color: #b5915e !important;
   border-color: #b5915e !important;
-  border-radius: 0.5rem !important; /* rounded-lg */
+  border-radius: 0.5rem !important;
   padding: 0.75rem 1.5rem !important;
   color: white;
 }
 
 #ff-compose .btn-primary:hover {
-  background-color: #c5a475 !important; /* Índigo más oscuro al pasar el mouse */
+  background-color: #c5a475 !important;
 }
 
 /* -------------------------------------------
     ESTILOS PARA EL BANNER PRINCIPAL (HEADER)
 ------------------------------------------- */
 
-/* 1. Contenedor principal del título */
+/* Contenedor principal del título */
 #ff-compose #ff-title-root {
   /* Colores y fondo con gradientes para simular los círculos de las esquinas */
   background-color: #1f5740 !important;
@@ -124,23 +118,20 @@
   font-weight: 700 !important;
   padding: 60px 20px 40px 20px !important;
 
-  /* Sombra naranja/dorada del texto para darle ese efecto 3D */
-  text-shadow: 1.5px 1px 0px #e8a65f !important;
-
   /* Estructura Flex para alinear el ícono y el texto */
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
 
   /* Ajustes para que encaje perfecto en tu contenedor Tailwind */
-  border-radius: 1rem 1rem 0 0 !important; /* rounded-2xl arriba */
-  margin-top: -8px !important; /* Compensa el p-2 de tu contenedor bg-white */
+  border-radius: 1rem 1rem 0 0 !important;
+  margin-top: -8px !important;
   margin-left: -8px !important;
   margin-right: -8px !important;
   margin-bottom: 30px !important;
 }
 
-/* 2. El cuadro con el ícono de cubiertos (usando ::before) */
+/* Contenedor con el ícono de cubiertos (usando ::before) */
 #ff-compose #ff-title-root::before {
   content: "";
   display: block !important;
@@ -155,12 +146,9 @@
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: 32px !important;
-
-  /* Quitamos la sombra dorada para que no afecte al ícono */
-  text-shadow: none !important;
 }
 
-/* 3. El subtítulo "Tu opinión nos importa mucho" (usando ::after) */
+/* El subtítulo "Tu opinión nos importa mucho" (usando ::after) */
 #ff-compose #ff-title-root::after {
   content: "Tu opinión nos importa mucho";
   display: block !important;
@@ -173,7 +161,48 @@
   color: #9cd4b5 !important; /* Verde menta claro */
   font-weight: 500 !important;
   margin-top: 16px !important; /* Espacio entre el título principal y el subtítulo */
+}
 
-  /* Quitamos la sombra dorada para que el subtítulo se vea limpio */
-  text-shadow: none !important;
+/* -------------------------------------------
+   ESTILOS PARA INPUTS DE TEXTO Y TEXTAREAS
+------------------------------------------- */
+
+/* Estilo base (reposo) */
+#ff-compose input[type="text"],
+#ff-compose textarea.form-control {
+  width: 100% !important;
+  padding: 12px 16px !important;
+  border: 2px solid #e5e7eb !important;
+  border-radius: 0.75rem !important;
+  background-color: #f9fafb !important; /* Fondo sutilmente gris (gray-50) */
+  color: #1f2937 !important; /* Texto gris muy oscuro */
+  font-size: 1rem !important;
+  font-family: inherit !important; /* Usa la fuente de tu sitio */
+  transition: all 0.3s ease !important; /* Animación suave */
+  box-shadow: none !important; /* Quitamos sombras extrañas por defecto */
+  resize: vertical !important; /* Permite cambiar el tamaño del textarea solo hacia abajo */
+}
+
+/* Focus */
+#ff-compose input[type="text"]:focus,
+#ff-compose textarea.form-control:focus {
+  border-color: #b5915e !important; /* El verde elegante de tu banner */
+  background-color: #ffffff !important; /* El fondo se vuelve blanco puro */
+  outline: none !important;
+  /* Un "anillo" verde translúcido alrededor, al estilo Tailwind */
+  box-shadow: 0 0 0 4px rgba(181, 145, 94, 0.15) !important;
+}
+
+/* Estilo del texto fantasma (Placeholder) */
+#ff-compose input[type="text"]::placeholder,
+#ff-compose textarea.form-control::placeholder {
+  color: #9ca3af !important; /* Gris claro para que no compita con el texto real */
+  font-style: italic !important;
+}
+
+/* Separar un poco el campo de texto de la opción "Otro" en los checkboxes */
+#ff-compose .ff-form-check-other input[type="text"] {
+  margin-top: 8px !important;
+  margin-left: 8px !important;
+  width: calc(100% - 30px) !important;
 }
