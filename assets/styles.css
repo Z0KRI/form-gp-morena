@@ -68,10 +68,14 @@
   width: auto !important;
 }
 
-/* Cambiar el texto de las preguntas */
+
+/* --- TEXTO DE LAS PREGUNTAS --- */
 #ff-compose .ff-item-qs {
-  color: #4b5563 !important;
-  font-weight: 600 !important;
+    color: #111827 !important; /* Gris casi negro */
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    font-family: ui-sans-serif, system-ui, -apple-system, sans-serif !important;
+    margin-bottom: 15px !important;
 }
 
 /* --- ESTILOS DE LOS BOTONES (Siguiente / Enviar) --- */
@@ -142,7 +146,7 @@
   margin-bottom: 24px !important; /* Espacio entre el ícono y el título */
 
   /* Ícono SVG en base64 (Cuchillo y tenedor cruzados) */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils-crossed-icon lucide-utensils-crossed"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"/><path d="m2.1 21.8 6.4-6.3"/><path d="m19 5-7 7"/></svg>');
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-utensils-crossed-icon lucide-utensils-crossed"><path d="m16 2-2.3 2.3a3 3 0 0 0 0 4.2l1.8 1.8a3 3 0 0 0 4.2 0L22 8"/><path d="M15 15 3.3 3.3a4.2 4.2 0 0 0 0 6l7.3 7.3c.7.7 2 .7 2.8 0L15 15Zm0 0 7 7"/><path d="m2.1 21.8 6.4-6.3"/><path d="m19 5-7 7"/></svg>');
   background-repeat: no-repeat !important;
   background-position: center !important;
   background-size: 32px !important;
@@ -205,4 +209,95 @@
   margin-top: 8px !important;
   margin-left: 8px !important;
   width: calc(100% - 30px) !important;
+}
+
+/* --- DISEÑO DE TARJETAS PARA OPCIONES MÚLTIPLES --- */
+#ff-compose .ff-form-check {
+    border: 1px solid #e5e7eb !important;
+    border-radius: 16px !important; /* Bordes redondeados */
+    padding: 16px 20px !important;
+    margin-bottom: 12px !important;
+    display: flex !important;
+    align-items: center !important;
+    background-color: #ffffff !important;
+    transition: all 0.2s ease !important;
+    cursor: pointer !important;
+    position: relative !important;
+}
+
+/* Estado Activo de la Tarjeta (Cuando la seleccionan) */
+#ff-compose .ff-form-check:has(input:checked) {
+    border-color: #306950 !important; /* Verde oscuro tuyo */
+    background-color: #f8fafc !important; /* Un fondo gris súper clarito */
+}
+
+/* Ocultar el radio button nativo que viene por defecto */
+#ff-compose .ff-form-check-input {
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    position: absolute !important;
+    opacity: 0 !important;
+}
+
+/* Configuración de la etiqueta (el texto) */
+#ff-compose .ff-form-check-label {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding-left: 60px !important; /* Espacio para el ícono redondo izquierdo */
+    font-weight: 700 !important;
+    color: #1f2937 !important;
+    cursor: pointer !important;
+}
+
+/* --- ÍCONOS REDONDOS GRISES A LA IZQUIERDA --- */
+#ff-compose .ff-form-check-label::before {
+    content: "";
+    position: absolute !important;
+    left: 15px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 45px !important;
+    height: 45px !important;
+    background-color: #f3f4f6 !important; /* Círculo gris claro */
+    border-radius: 50% !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important; /* Tamaño del emoji interior */
+}
+
+/* Inyectar íconos y subtítulos según la opción */
+#ff-compose label[for$="DESAYUNO"]::before { content: "☕"; }
+#ff-compose label[for$="DESAYUNO"]::after { content: "Servicio de la mañana"; display: block; font-size: 0.8rem; font-weight: 400; color: #6b7280; margin-top: 2px;}
+
+#ff-compose label[for$="COMIDA"]::before { content: "🍽️"; }
+#ff-compose label[for$="COMIDA"]::after { content: "Servicio del mediodía"; display: block; font-size: 0.8rem; font-weight: 400; color: #6b7280; margin-top: 2px;}
+
+#ff-compose label[for$="AMBOS"]::before { content: "✨"; }
+#ff-compose label[for$="AMBOS"]::after { content: "Desayuno y comida"; display: block; font-size: 0.8rem; font-weight: 400; color: #6b7280; margin-top: 2px;}
+
+#ff-compose label[for$="Muy malo"]::before { content: "😢"; }
+#ff-compose label[for$="Malo"]::before { content: "🙁"; }
+#ff-compose label[for$="Neutral"]::before { content: "😐"; }
+#ff-compose label[for$="Bueno"]::before { content: "🙂"; }
+#ff-compose label[for$="Excelente"]::before { content: "😁"; }
+
+/* --- CÍRCULO DEL RADIO BUTTON PERSONALIZADO A LA DERECHA --- */
+#ff-compose .ff-form-check::after {
+    content: "";
+    position: absolute;
+    right: 20px;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #d1d5db; /* Borde gris por defecto */
+    border-radius: 50%;
+    background-color: transparent;
+    transition: all 0.2s;
+}
+
+/* Círculo cuando está seleccionado */
+#ff-compose .ff-form-check:has(input:checked)::after {
+    border-color: #306950 !important;
+    background: radial-gradient(circle, #306950 40%, transparent 45%); /* Hace el puntito interno */
 }
